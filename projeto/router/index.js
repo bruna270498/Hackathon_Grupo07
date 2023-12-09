@@ -5,5 +5,6 @@ const router = Router();
 const pacienteController = new PacienteController();
 
 router.post('/', pacienteController.create);
+router.put('/:id', pacienteController.update);
 
 module.exports = router;

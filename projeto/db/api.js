@@ -25,9 +25,15 @@ const mostrarPacientes = async () => {
     console.log(result.rows);
 }
 
-console.log(pool.options.user);
-console.log(pool.options.database);
+const atualizarPaciente = async (nome, dataNascimento, id) => {
+    const result = await pool.query('UPDATE PACIENTE SET NOME = $1, DATA_NASCIMENTO = $2 WHERE ID_PACIENTE = $3', [nome, dataNascimento, id]);
+
+    console.log(result.rows);
+}
+
+// console.log(pool.options.user);
+// console.log(pool.options.database);
 // showVacinasCount();
 // mostrarPacientes();
 
-module.exports = { showVacinasCount, criarPaciente };
+module.exports = { showVacinasCount, criarPaciente, atualizarPaciente };
