@@ -4,8 +4,10 @@ const router = require('./router');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
-app.use('/', router);
+app.use(router);
 
+
+// showVacinasCount();
 // Catch all handler for all other request.
 app.use('*', (req, res) => {
     res.json({ msg: 'no route handler found' }).end()
