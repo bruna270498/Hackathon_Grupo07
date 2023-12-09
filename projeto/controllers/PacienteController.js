@@ -26,7 +26,7 @@ class PacienteController {
 
     return res.status(200).json(result);
   }
-  async index(req, res) {
+  async find(req, res) {
     const { id } = req.params;
 
     const result = await mostrarPacientes(id);

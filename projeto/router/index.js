@@ -8,7 +8,7 @@ const vacinaAplicadaController = new VacinaAplicadaController();
 
 router.post('/', pacienteController.create);
 router.put('/:id', pacienteController.update);
-// router.get('/:id', pacienteController.index);
+// router.get('/:id', pacienteController.find);
 router.delete('/:id', pacienteController.delete);
 router.get('/', pacienteController.show);
 

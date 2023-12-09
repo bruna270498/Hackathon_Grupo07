@@ -24,7 +24,6 @@ const deletarPaciente = async (id) => {
 
 const todosPacientes = async () => {
   const result = await pool.query(`SELECT * FROM PACIENTE`);
-
   return result.rows;
 }
 
