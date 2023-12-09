@@ -1,5 +1,5 @@
 const AppError = require('../utils/AppError');
-const { criarPaciente, atualizarPaciente, mostrarPacientes } = require('../db/api');
+const { criarPaciente, atualizarPaciente, mostrarPacientes, deletarPaciente, todosPacientes } = require('../db/api');
 
 class PacienteController {
   async create(req, res) {
@@ -31,6 +31,15 @@ class PacienteController {
 
     const result = await mostrarPacientes(id);
 
+    return res.status(200).json(result);
+  }
+  async delete(req, res) {
+    const { id } = req.params;
+    const result = await deletarPaciente(id);
+    return res.status(200).json(result);
+  }
+  async pacientes(_req, res) {
+    const result = await todosPacientes();
     return res.status(200).json(result);
   }
 }
