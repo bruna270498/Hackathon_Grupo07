@@ -9,9 +9,10 @@ app.use(router);
 
 // showVacinasCount();
 // Catch all handler for all other request.
-app.use('*', (req, res) => {
+app.use('*', (_req, res) => {
     res.json({ msg: 'no route handler found' }).end()
 })
+
 
 app.use((error, request, response, next) => {
     if (error instanceof AppError) {
