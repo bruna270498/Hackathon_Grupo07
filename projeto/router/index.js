@@ -6,7 +6,7 @@ const VacinaController = require('../controllers/VacinaController');
 const router = Router();
 const pacienteController = new PacienteController();
 const vacinaAplicadaController = new VacinaAplicadaController();
-const vacinaAno = new VacinaController();
+const vacinaController = new VacinaController();
 
 router.post('/', pacienteController.create);
 router.put('/:id', pacienteController.update);
@@ -18,6 +18,9 @@ router.post('/vacinaAplicada', vacinaAplicadaController.create);
 router.delete('/vacinaAplicada/:idVacina/:idPaciente', vacinaAplicadaController.delete);
 router.get('/vacinaAplicada', vacinaAplicadaController.show);
 
-router.get('/vacinaAno', vacinaAno.vacinaAno);
+router.get('/vacinaAno', vacinaController.vacinaAno);
+router.get('/vacinaMes', vacinaController.vacinaMes);
+router.get('/vacinaAnoExato', vacinaController.vacinaAnoExato);
+router.get('/vacinaMesExato', vacinaController.vacinaMesExato);
 
 module.exports = router;
