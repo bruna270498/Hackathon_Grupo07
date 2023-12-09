@@ -1,15 +1,15 @@
 const AppError = require('../utils/AppError');
-const { criarPaciente, atualizarPaciente, mostrarPacientes, deletarPaciente, todosPacientes } = require('../db/api');
+const { criarPaciente, atualizarPaciente, mostrarPacientes, deletarPaciente, todosPacientes } = require('../db/pacient');
 
 class PacienteController {
   async create(req, res) {
-    const { id_paciente, nome, data_nascimento } = req.body;
+    const { nome, data_nascimento } = req.body;
 
-    if (!id_paciente || !nome || !data_nascimento) {
+    if (!nome || !data_nascimento) {
       throw new AppError("Preencha todos os campos");
     }
 
-    const result = await criarPaciente(id_paciente, nome, data_nascimento);
+    const result = await criarPaciente(nome, data_nascimento);
 
     return res.status(201).json(result);
   }
@@ -35,11 +35,14 @@ class PacienteController {
   }
   async delete(req, res) {
     const { id } = req.params;
+
     const result = await deletarPaciente(id);
+
     return res.status(200).json(result);
   }
-  async pacientes(_req, res) {
+  async show(_req, res) {
     const result = await todosPacientes();
+
     return res.status(200).json(result);
   }
 }
