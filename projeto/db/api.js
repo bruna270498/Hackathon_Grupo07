@@ -32,10 +32,16 @@ const atualizarPaciente = async (nome, dataNascimento, id) => {
     console.log(result.rows);
 }
 
+const deletarPaciente = async (id) => {
+    const result = await pool.query(`DELETE FROM PACIENTE WHERE ID_PACIENTE = $1`, [id]);
+
+    return {"message": "Patient deleted successfully"};
+}
+
 // console.log(pool.options.user);
 // console.log(pool.options.database);
 // showVacinasCount();
 // mostrarPacientes();
 
 
-module.exports = { showVacinasCount, criarPaciente, atualizarPaciente, mostrarPacientes };
+module.exports = { showVacinasCount, criarPaciente, atualizarPaciente, mostrarPacientes, deletarPaciente };
