@@ -10,4 +10,5 @@ router.get('/:id', pacienteController.index);
 router.delete('/:id', pacienteController.delete);
 router.get('/', pacienteController.pacientes);
 
+
 module.exports = router;

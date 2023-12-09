@@ -51,3 +51,4 @@ const todosPacientes = async () => {
 
 
 module.exports = { showVacinasCount, criarPaciente, atualizarPaciente, mostrarPacientes, deletarPaciente, todosPacientes };
+
