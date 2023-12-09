@@ -1,15 +1,15 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    user: '<usuario>',
+    user: 'irene',
     host: 'itcpostgresql.postgres.database.azure.com',
-    database: '<database>',
-    password: '<senha>',
+    database: 'db007',
+    password: '%&unsas_aew27007',
     port: 5432,
     ssl: true
 });
 
-const showVacinasCount = async() => {
+const showVacinasCount = async () => {
     const result = await pool.query('SELECT count(*) from VACINA');
     console.log(result.rows);
 }
