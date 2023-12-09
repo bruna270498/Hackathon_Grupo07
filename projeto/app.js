@@ -1,5 +1,7 @@
+require('express-async-errors');
 const express = require('express');
 const app = express();
+const AppError = require('./utils/AppError');
 const router = require('./router');
 
 app.use(express.json());

@@ -14,15 +14,16 @@ const showVacinasCount = async () => {
     console.log(result.rows);
 }
 
-const criarPaciente = async (nome, dataNascimento) => {
-    const result = await pool.query('INSERT INTO PACIENTE (NOME, DATA_NASCIMENTO) VALUES ($1, $2)', [nome, dataNascimento]);
+const criarPaciente = async (id_paciente, nome, data_nascimento) => {
+    const result = await pool.query('INSERT INTO PACIENTE (ID_PACIENTE, NOME, DATA_NASCIMENTO) VALUES ($1, $2, $3)', [id_paciente, nome, data_nascimento]);
 
     return result;
 }
 
-const mostrarPacientes = async () => {
-    const result = await pool.query(`SELECT * FROM PACIENTE`);
-    console.log(result.rows);
+const mostrarPacientes = async (id) => {
+    // const result = await pool.query(`SELECT NOME, DATA_NASCIMENTO FROM PACIENTE WHERE NOME = $1`, [`%${nome}%`]);
+    const result = await pool.query(`SELECT NOME, DATA_NASCIMENTO FROM PACIENTE WHERE ID_PACIENTE = $1`, [id]);
+    return result.rows;
 }
 
 const atualizarPaciente = async (nome, dataNascimento, id) => {
@@ -36,4 +37,5 @@ const atualizarPaciente = async (nome, dataNascimento, id) => {
 // showVacinasCount();
 // mostrarPacientes();
 
-module.exports = { showVacinasCount, criarPaciente, atualizarPaciente };
+
+module.exports = { showVacinasCount, criarPaciente, atualizarPaciente, mostrarPacientes };
