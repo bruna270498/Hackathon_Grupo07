@@ -1,20 +1,37 @@
 const AppError = require('../utils/AppError');
-const { criarPaciente } = require('../db/api');
-const uuid = require('uuid');
-const uuidInt = require('uuid-int');
+const { criarPaciente, atualizarPaciente, mostrarPacientes } = require('../db/api');
 
 class PacienteController {
   async create(req, res) {
+    const { id_paciente, nome, data_nascimento } = req.body;
+
+    if (!id_paciente || !nome || !data_nascimento) {
+      throw new AppError("Preencha todos os campos");
+    }
+
+    const result = await criarPaciente(id_paciente, nome, data_nascimento);
+
+    return res.status(201).json(result);
+  }
+
+  async update(req, res) {
     const { nome, dataNascimento } = req.body;
+    const { id } = req.params;
 
     if (!nome || !dataNascimento) {
       throw new AppError("Preencha todos os campos");
     }
 
+    const result = await atualizarPaciente({ nome, dataNascimento, id });
 
-    const result = await criarPaciente({ nome, dataNascimento });
+    return res.status(200).json(result);
+  }
+  async index(req, res) {
+    const { id } = req.params;
 
-    return res.status(201).json(result);
+    const result = await mostrarPacientes(id);
+
+    return res.status(200).json(result);
   }
 }
 
