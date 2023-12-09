@@ -11,8 +11,8 @@ app.use('*', (req, res) => {
     res.json({ msg: 'no route handler found' }).end()
 })
 
-// Start the server
-const port = process.env.PORT || 3000
-app.listen(port, () => {
-    console.log(`index.js listening on ${port}`)
-})
+// // Start the server
+// const port = process.env.PORT || 3000
+// app.listen(port, () => {
+//     console.log(`index.js listening on ${port}`)
+// })
