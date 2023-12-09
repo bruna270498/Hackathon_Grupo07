@@ -22,4 +22,10 @@ const consultaVacinaMesExato = async (mes) => {
     return result.rows;
 }
 
-module.exports = { consultaVacinaAno, consultaVacinaMes, consultaVacinaAnoExato, consultaVacinaMesExato };
+const consultaVacinaIdade = async (idade) => {
+    const result = await pool.query('SELECT * FROM VACINA V JOIN PERIODOAPLICACAOANO A ON V.ID_VACINA = A.ID_VACINA JOIN PACIENTE P ON P.IDADE BETWEEN A.QTD_ANO_INICIAL AND A.QTD_ANO_FINAL;', [idade]);
+
+    return result.rows;
+}
+
+module.exports = { consultaVacinaAno, consultaVacinaMes, consultaVacinaAnoExato, consultaVacinaMesExato, consultaVacinaIdade };
