@@ -7,7 +7,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/', router);
 
 // Catch all handler for all other request.
-app.use('*', (req, res) => {
+app.use('*', (_req, res) => {
     res.json({ msg: 'no route handler found' }).end()
 })
 
