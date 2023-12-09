@@ -1,5 +1,5 @@
 const AppError = require('../utils/AppError');
-const { consultaVacinaAno, consultaVacinaMes, consultaVacinaAnoExato, consultaVacinaMesExato, consultaVacinaIdade } = require('../db/consultaVacina');
+const { consultaVacinaAno, consultaVacinaMes, consultaVacinaAnoExato, consultaVacinaMesExato, consultaVacinaIdade, consultaVacinaIdadeMes } = require('../db/consultaVacina');
 
 class VacinaController {
     async vacinaAno(_req, res) {
@@ -8,7 +8,7 @@ class VacinaController {
         return res.status(200).json(result);
     }
     async vacinaAnoExato(req, res) {
-        const { ano } = req.body;
+        const { ano } = req.query;
 
         if (!ano) {
             throw new AppError("Preencha todos os campos");
@@ -24,7 +24,7 @@ class VacinaController {
         return res.status(200).json(result);
     }
     async vacinaMesExato(req, res) {
-        const { mes } = req.body;
+        const { mes } = req.query;
 
         if (!mes) {
             throw new AppError("Preencha todos os campos");
@@ -35,13 +35,24 @@ class VacinaController {
         return res.status(200).json(result);
     }
     async vacinaIdade(req, res) {
-        const { idade } = req.body;
+        const { idade } = req.query;
 
         if (!idade) {
             throw new AppError("Preencha todos os campos");
         }
 
         const result = await consultaVacinaIdade(idade);
+
+        return res.status(200).json(result);
+    }
+    async vacinaIdadeMes(req, res) {
+        const { mes } = req.query;
+
+        if (!mes) {
+            throw new AppError("Preencha todos os campos");
+        }
+
+        const result = await consultaVacinaIdadeMes(mes);
 
         return res.status(200).json(result);
     }

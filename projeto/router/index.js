@@ -2,11 +2,13 @@ const { Router } = require('express');
 const PacienteController = require('../controllers/PacienteController');
 const VacinaAplicadaController = require('../controllers/VacinaAplicadaController');
 const VacinaController = require('../controllers/VacinaController');
+const VacinaProtecaoController = require('../controllers/VacinaProtecaoController');
 
 const router = Router();
 const pacienteController = new PacienteController();
 const vacinaAplicadaController = new VacinaAplicadaController();
 const vacinaController = new VacinaController();
+const vacinaProtecaoController = new VacinaProtecaoController();
 
 router.post('/paciente', pacienteController.create);
 router.put('/paciente/:id', pacienteController.update);
@@ -23,5 +25,8 @@ router.get('/vacinaMes', vacinaController.vacinaMes);
 router.get('/vacinaAnoExato', vacinaController.vacinaAnoExato);
 router.get('/vacinaMesExato', vacinaController.vacinaMesExato);
 router.get('/vacinaIdade', vacinaController.vacinaIdade);
+router.get('/vacinaIdadeMes', vacinaController.vacinaIdadeMes);
+
+router.get('/vacinaProtecao', vacinaProtecaoController.find);
 
 module.exports = router;
