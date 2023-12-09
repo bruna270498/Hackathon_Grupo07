@@ -22,4 +22,27 @@ const vacinaPaciente = async (id) => {
   return result.rows;
 }
 
-module.exports = { cadastrarVacina, deletarVacina, mostrarAplicacoes, vacinaPaciente };
+const vacinasPacientePendentes = async (id) => {
+  const result = await pool.query(`SELECT
+  PA.ID_PACIENTE,
+  PA.NOME AS NOME_PACIENTE,
+  VC.ID_VACINA,
+  VC.VACINA,
+  VC.SIGLA_VACINA,
+  VC.DOENCA_PROTECAO,
+  VC.DOSE,
+  VC.ID_REDE
+FROM
+  PACIENTE PA
+JOIN
+  VACINA VC ON 1=1
+LEFT JOIN
+  VACINAAPLICADA VA ON PA.ID_PACIENTE = VA.ID_PACIENTE AND VC.ID_VACINA = VA.ID_VACINA
+WHERE
+  PA.ID_PACIENTE = $1
+  AND VA.ID_PACIENTE IS NULL;`, [id]);
+
+  return result.rows;
+}
+
+module.exports = { cadastrarVacina, deletarVacina, mostrarAplicacoes, vacinaPaciente, vacinasPacientePendentes };

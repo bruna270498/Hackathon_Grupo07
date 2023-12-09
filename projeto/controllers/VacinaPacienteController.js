@@ -1,4 +1,4 @@
-const { vacinaPaciente } = require('../db/vacinaAplicada');
+const { vacinaPaciente, vacinasPacientePendentes } = require('../db/vacinaAplicada');
 
 class VacinaPacienteController {
   async vacinasTomadas(req, res) {
@@ -10,6 +10,10 @@ class VacinaPacienteController {
   }
   async vacinasPendentes(req, res) {
     const { id } = req.params;
+
+    const result = await vacinasPacientePendentes(id);
+
+    return res.status(200).json(result);
   }
 }
 

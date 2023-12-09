@@ -31,6 +31,7 @@ router.get('/vacinaIdadeMes', vacinaController.vacinaIdadeMes);
 
 router.get('/vacinaProtecao', vacinaProtecaoController.find);
 
-router.get('/vacinaPaciente/:id', vacinaPacienteController.find);
+router.get('/vacinaPaciente/:id', vacinaPacienteController.vacinasTomadas);
+router.get('/vacinaPendentes/:id', vacinaPacienteController.vacinasPendentes);
 
 module.exports = router;
