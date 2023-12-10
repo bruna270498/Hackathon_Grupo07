@@ -106,13 +106,13 @@ router.post('/vacinaAplicada', vacinaAplicadaController.create
 router.delete('/vacinaAplicada/:idVacina/:idPaciente', vacinaAplicadaController.delete
   /* #swagger.parameters['idVacina'] = {
            in: 'path',
-           description: 'Deleta uma vacina',
+           description: 'Deleta uma vacina aplicada',
            required: true,
            type: 'integer',
          } */
   /* #swagger.parameters['idPaciente'] = {
          in: 'path',
-         description: 'Deleta uma vacina',
+         description: 'Deleta uma vacina aplicada',
          required: true,
          type: 'integer',
        } */

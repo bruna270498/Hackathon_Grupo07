@@ -194,14 +194,14 @@
             "in": "path",
             "required": true,
             "type": "integer",
-            "description": "Deleta uma vacina"
+            "description": "Deleta uma vacina aplicada"
           },
           {
             "name": "idPaciente",
             "in": "path",
             "required": true,
             "type": "integer",
-            "description": "Deleta uma vacina"
+            "description": "Deleta uma vacina aplicada"
           }
         ],
         "responses": {
