@@ -13,6 +13,7 @@ const atualizarCampanha = async (descricao, dataInicio, dataFim, id) => {
 }
 
 const pesquisaCampanhaData = async (data) => {
+
   const result = await pool.query('SELECT * FROM CAMPANHA WHERE $1 BETWEEN DATA_INICIO AND DATA_FIM', [data]);
 
   return result.rows;
