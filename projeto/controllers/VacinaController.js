@@ -1,4 +1,5 @@
 const AppError = require('../utils/AppError');
+
 const { consultaVacinaAno, consultaVacinaMes, consultaVacinaAnoExato, consultaVacinaMesExato, consultaVacinaIdade, consultaVacinaIdadeMes } = require('../db/consultaVacina');
 
 class VacinaController {
@@ -55,6 +56,7 @@ class VacinaController {
         const result = await consultaVacinaIdadeMes(mes);
 
         return res.status(200).json(result);
+
     }
 };
 module.exports = VacinaController;

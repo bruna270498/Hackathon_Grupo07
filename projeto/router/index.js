@@ -22,6 +22,7 @@ router.post('/vacinaAplicada', vacinaAplicadaController.create);
 router.delete('/vacinaAplicada/:idVacina/:idPaciente', vacinaAplicadaController.delete);
 router.get('/vacinaAplicada', vacinaAplicadaController.show);
 
+
 router.get('/vacinaAno', vacinaController.vacinaAno);
 router.get('/vacinaMes', vacinaController.vacinaMes);
 router.get('/vacinaAnoExato', vacinaController.vacinaAnoExato);
