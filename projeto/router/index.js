@@ -19,5 +19,6 @@ router.delete('/vacinaAplicada/:idVacina/:idPaciente', vacinaAplicadaController.
 router.get('/vacinaAplicada', vacinaAplicadaController.show);
 
 router.get('/vacinaAno', vacinaAno.vacinaAno);
+router.get('/vacinaMes', vacinaAno.vacinaMes);
 
 module.exports = router;
