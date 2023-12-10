@@ -46,7 +46,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "queryName",
+            "name": "nome",
             "in": "query",
             "type": "string",
             "description": "Obtém um determinado paciente",
@@ -75,13 +75,12 @@
             "name": "requestBody",
             "in": "body",
             "description": "Novos dados para o paciente",
-            "required": true,
             "schema": {
               "properties": {
                 "nome": {
                   "type": "string"
                 },
-                "data_nascimento": {
+                "dataNascimento": {
                   "type": "string"
                 }
               },
@@ -116,7 +115,7 @@
         }
       }
     },
-    "/paciente/": {
+    "/paciente/all": {
       "get": {
         "description": "",
         "parameters": [
@@ -173,7 +172,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "none",
+            "name": "",
             "description": "Obtém a lista de todas vacinas aplicadas",
             "in": "query",
             "type": "string"
@@ -217,7 +216,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "none",
+            "name": "",
             "description": "Obtém a lista de todas vacinas aplicadas por ano",
             "in": "query",
             "type": "string"
@@ -235,7 +234,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "none",
+            "name": "",
             "description": "Obtém a lista de todas vacinas aplicadas por mês",
             "in": "query",
             "type": "string"
@@ -253,7 +252,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "queryYear",
+            "name": "ano",
             "in": "query",
             "type": "string",
             "description": "Obtém a lista de todas vacinas aplicadas em um determinado ano",
@@ -272,7 +271,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "queryMonth",
+            "name": "mes",
             "in": "query",
             "type": "string",
             "description": "Obtém a lista de todas vacinas aplicadas em um determinado mês",
@@ -291,7 +290,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "queryYear",
+            "name": "idade",
             "in": "query",
             "type": "string",
             "description": "Obtém a lista de todas vacinas que uma pessoa tem que tomar de acordo com a sua idade",
@@ -310,7 +309,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "queryMonth",
+            "name": "mes",
             "in": "query",
             "type": "string",
             "description": "Obtém a lista de todas vacinas que uma pessoa tem que tomar de acordo com a sua idade em meses",
@@ -329,7 +328,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "queryText",
+            "name": "text",
             "in": "query",
             "type": "string",
             "description": "Obtém a lista de todas vacinas de acordo com sua proteção",
@@ -351,14 +350,8 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "idPaciente",
-            "in": "path",
-            "description": "Mostra as vacinas que um determinado paciente tomou",
-            "required": true,
-            "type": "integer"
+            "type": "integer",
+            "description": "Mostra as vacinas que um determinado paciente tomou"
           }
         ],
         "responses": {
@@ -376,14 +369,8 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "idPaciente",
-            "in": "path",
-            "description": "Mostra as vacinas pendentes de um determinado paciente",
-            "required": true,
-            "type": "integer"
+            "type": "integer",
+            "description": "Mostra as vacinas pendentes de um determinado paciente"
           }
         ],
         "responses": {
@@ -432,7 +419,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "queryDate",
+            "name": "data",
             "in": "query",
             "type": "string",
             "description": "Busca campanha pela data",
@@ -545,7 +532,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "queryText",
+            "name": "text",
             "in": "query",
             "type": "string",
             "description": "Obtém a campanha de acordo com a proteção da vacina",

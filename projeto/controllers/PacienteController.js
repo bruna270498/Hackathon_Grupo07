@@ -22,7 +22,7 @@ class PacienteController {
       throw new AppError("Preencha todos os campos");
     }
 
-    const result = await atualizarPaciente({ nome, dataNascimento, id });
+    const result = await atualizarPaciente(nome, dataNascimento, id);
 
     return res.status(200).json(result);
   }
