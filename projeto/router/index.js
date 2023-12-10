@@ -14,6 +14,7 @@ const vacinaProtecaoController = new VacinaProtecaoController();
 const vacinaPacienteController = new VacinaPacienteController();
 const campanhaVacinacaoController = new CampanhaVacinacaoController();
 
+
 router.post('/paciente', pacienteController.create
   /*  #swagger.parameters['requestBody'] = {      
       in: 'body',
@@ -284,5 +285,6 @@ router.get('/campanhaVacinacaoProtecao', campanhaVacinacaoController.showCampanh
       required: true,
   } */
 );
+
 
 module.exports = router;

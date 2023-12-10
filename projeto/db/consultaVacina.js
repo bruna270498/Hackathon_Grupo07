@@ -10,6 +10,7 @@ const consultaVacinaMes = async () => {
     return result.rows;
 };
 
+
 const consultaVacinaAnoExato = async (ano) => {
     const result = await pool.query('SELECT * FROM VACINA V JOIN PERIODOAPLICACAOANO A ON V.ID_VACINA = A.ID_VACINA JOIN REDE R ON V.ID_REDE = R.ID_REDE WHERE QTD_ANO_INICIAL >= $1 AND QTD_ANO_FINAL <= $1;', [ano]);
 
