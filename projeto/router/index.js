@@ -31,7 +31,8 @@ router.post('/paciente', pacienteController.create
         },
         required: ["nome", "data_nascimento"]
       },
-  } */
+  }
+    */
 );
 
 router.put('/paciente/:id', pacienteController.update
@@ -44,13 +45,12 @@ router.put('/paciente/:id', pacienteController.update
    #swagger.parameters['requestBody'] = {
     in: 'body',
     description: 'Novos dados para o paciente',
-    required: true,
     '@schema': {
       properties: {
         nome: {
           type: 'string',
         },
-        data_nascimento: {
+        dataNascimento: {
           type: 'string',
         },
       },
@@ -59,7 +59,7 @@ router.put('/paciente/:id', pacienteController.update
   } */
 );
 router.get('/paciente', pacienteController.find
-  /*  #swagger.parameters['queryName'] = {      
+  /*  #swagger.parameters['nome'] = {      
      in: 'query',
      type: 'string',
      description: 'Obtém um determinado paciente',
@@ -74,7 +74,7 @@ router.delete('/paciente/:id', pacienteController.delete
             type: 'integer',
           } */
 );
-router.get('/paciente/', pacienteController.show
+router.get('/paciente/all', pacienteController.show
   /*  #swagger.parameters['none'] = {      
      description: 'Obtém a lista de todos pacientes',
  } */
@@ -117,23 +117,23 @@ router.delete('/vacinaAplicada/:idVacina/:idPaciente', vacinaAplicadaController.
        } */
 );
 router.get('/vacinaAplicada', vacinaAplicadaController.show
-  /*  #swagger.parameters['none'] = {      
+  /*  #swagger.parameters[] = {      
      description: 'Obtém a lista de todas vacinas aplicadas',
  } */
 );
 
 router.get('/vacinaAno', vacinaController.vacinaAno
-  /*  #swagger.parameters['none'] = {      
+  /*  #swagger.parameters[] = {      
      description: 'Obtém a lista de todas vacinas aplicadas por ano',
  } */
 );
 router.get('/vacinaMes', vacinaController.vacinaMes
-  /*  #swagger.parameters['none'] = {      
+  /*  #swagger.parameters[] = {      
      description: 'Obtém a lista de todas vacinas aplicadas por mês',
  } */
 );
 router.get('/vacinaAnoExato', vacinaController.vacinaAnoExato
-  /*  #swagger.parameters['queryYear'] = {
+  /*  #swagger.parameters['ano'] = {
       in: 'query',
      type: 'string',  
      description: 'Obtém a lista de todas vacinas aplicadas em um determinado ano',
@@ -141,7 +141,7 @@ router.get('/vacinaAnoExato', vacinaController.vacinaAnoExato
  } */
 );
 router.get('/vacinaMesExato', vacinaController.vacinaMesExato
-  /*  #swagger.parameters['queryMonth'] = {
+  /*  #swagger.parameters['mes'] = {
       in: 'query',
      type: 'string',  
      description: 'Obtém a lista de todas vacinas aplicadas em um determinado mês',
@@ -149,7 +149,7 @@ router.get('/vacinaMesExato', vacinaController.vacinaMesExato
  } */
 );
 router.get('/vacinaIdade', vacinaController.vacinaIdade
-  /*  #swagger.parameters['queryYear'] = {
+  /*  #swagger.parameters['idade'] = {
       in: 'query',
      type: 'string',  
      description: 'Obtém a lista de todas vacinas que uma pessoa tem que tomar de acordo com a sua idade',
@@ -157,7 +157,7 @@ router.get('/vacinaIdade', vacinaController.vacinaIdade
  } */
 );
 router.get('/vacinaIdadeMes', vacinaController.vacinaIdadeMes
-  /*  #swagger.parameters['queryMonth'] = {
+  /*  #swagger.parameters['mes'] = {
       in: 'query',
      type: 'string',  
      description: 'Obtém a lista de todas vacinas que uma pessoa tem que tomar de acordo com a sua idade em meses',
@@ -166,7 +166,7 @@ router.get('/vacinaIdadeMes', vacinaController.vacinaIdadeMes
 );
 
 router.get('/vacinaProtecao', vacinaProtecaoController.find
-  /*  #swagger.parameters['queryText'] = {
+  /*  #swagger.parameters['text'] = {
        in: 'query',
       type: 'string',  
       description: 'Obtém a lista de todas vacinas de acordo com sua proteção',
@@ -175,7 +175,7 @@ router.get('/vacinaProtecao', vacinaProtecaoController.find
 );
 
 router.get('/vacinaPaciente/:id', vacinaPacienteController.vacinasTomadas
-  /* #swagger.parameters['idPaciente'] = {
+  /* #swagger.parameters['id'] = {
           in: 'path',
           description: 'Mostra as vacinas que um determinado paciente tomou',
           required: true,
@@ -183,7 +183,7 @@ router.get('/vacinaPaciente/:id', vacinaPacienteController.vacinasTomadas
         } */
 );
 router.get('/vacinaPendentes/:id', vacinaPacienteController.vacinasPendentes
-  /* #swagger.parameters['idPaciente'] = {
+  /* #swagger.parameters['id'] = {
           in: 'path',
           description: 'Mostra as vacinas pendentes de um determinado paciente',
           required: true,
@@ -242,7 +242,7 @@ router.put('/campanhaVacinacao/:id', campanhaVacinacaoController.update
    } */
 );
 router.get('/campanhaVacinacao', campanhaVacinacaoController.search
-  /*  #swagger.parameters['queryDate'] = {
+  /*  #swagger.parameters['data'] = {
         in: 'query',
        type: 'string',  
        description: 'Busca campanha pela data',
@@ -277,7 +277,7 @@ router.delete('/campanhaVacinacao/deletarVacina/:idVacina', campanhaVacinacaoCon
           } */
 );
 router.get('/campanhaVacinacaoProtecao', campanhaVacinacaoController.showCampanha
-  /*  #swagger.parameters['queryText'] = {
+  /*  #swagger.parameters['text'] = {
        in: 'query',
       type: 'string',  
       description: 'Obtém a campanha de acordo com a proteção da vacina',
