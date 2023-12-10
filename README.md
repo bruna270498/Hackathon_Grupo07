@@ -40,17 +40,14 @@
 
 - npm install.
 
-# Rode o comando Swagger
+# Rode o comando para API
 
-- npm run Swagger
+- npm run dev
 
 # Acesse o Swagger
 
 - http://localhost:3000/swagger-ui
 
-# Rode o comando para API
-
-- npm run dev
 ```
 
 ### Agradecimentos
