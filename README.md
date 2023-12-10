@@ -1,4 +1,4 @@
-# API de Controle de Vacinação 
+# API de Controle de Vacinação      <img src='projeto/img/vacina.png' width='150' height='50' />
 ## Projeto Hackathon               <img src='projeto/img/digitando2.png' width='50' height='40' />
  Esta é uma API desenvolvida em Node.js para gerenciar informações relacionadas a pacientes, vacinas, campanhas de vacinação e períodos de aplicação. A API oferece operações básicas de CRUD (Create, Read, Update, Delete) para cada entidade, permitindo o rastreamento eficiente das vacinas aplicadas a cada paciente ao longo do tempo.
  
