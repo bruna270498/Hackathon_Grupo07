@@ -58,6 +58,6 @@ Agradecemos à Mesttra pela parceria e pela oportunidade de aplicar nossos conhe
 
 ### Autores
 1. [Bruna Almeida](https://www.linkedin.com/in/bruna-almeida-soares/);
-2. [Jonh Peterson](https://www.linkedin.com/in/johnpeterson88/);
+2. [John Peterson](https://www.linkedin.com/in/johnpeterson88/);
 3. [Luciana Correa](https://www.linkedin.com/in/lucianacf/);
 4. [Apolo Moraes](https://www.linkedin.com/in/apolomoraes/).
