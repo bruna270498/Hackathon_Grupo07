@@ -1,0 +1,563 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Hackathon 1000Devs by Mesttra(Grupo 07)",
+    "description": "API para carteira digital de vacinação",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/paciente": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "requestBody",
+            "in": "body",
+            "description": "Cria um novo paciente",
+            "required": true,
+            "schema": {
+              "properties": {
+                "nome": {
+                  "type": "string"
+                },
+                "data_nascimento": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "nome",
+                "data_nascimento"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "queryName",
+            "in": "query",
+            "type": "string",
+            "description": "Obtém um determinado paciente",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/paciente/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do paciente"
+          },
+          {
+            "name": "requestBody",
+            "in": "body",
+            "description": "Novos dados para o paciente",
+            "required": true,
+            "schema": {
+              "properties": {
+                "nome": {
+                  "type": "string"
+                },
+                "data_nascimento": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "nome",
+                "data_nascimento"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Deleta um paciente"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/paciente/": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "none",
+            "description": "Obtém a lista de todos pacientes",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaAplicada": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "requestBody",
+            "in": "body",
+            "description": "Adiciona uma vacina que foi aplicada",
+            "required": true,
+            "schema": {
+              "properties": {
+                "idPaciente": {
+                  "type": "string"
+                },
+                "idVacina": {
+                  "type": "string"
+                },
+                "dataAplicacao": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "idPaciente",
+                "idVacina",
+                "dataAplicacao"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "none",
+            "description": "Obtém a lista de todas vacinas aplicadas",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaAplicada/{idVacina}/{idPaciente}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "idVacina",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Deleta uma vacina"
+          },
+          {
+            "name": "idPaciente",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Deleta uma vacina"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaAno": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "none",
+            "description": "Obtém a lista de todas vacinas aplicadas por ano",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaMes": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "none",
+            "description": "Obtém a lista de todas vacinas aplicadas por mês",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaAnoExato": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "queryYear",
+            "in": "query",
+            "type": "string",
+            "description": "Obtém a lista de todas vacinas aplicadas em um determinado ano",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaMesExato": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "queryMonth",
+            "in": "query",
+            "type": "string",
+            "description": "Obtém a lista de todas vacinas aplicadas em um determinado mês",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaIdade": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "queryYear",
+            "in": "query",
+            "type": "string",
+            "description": "Obtém a lista de todas vacinas que uma pessoa tem que tomar de acordo com a sua idade",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaIdadeMes": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "queryMonth",
+            "in": "query",
+            "type": "string",
+            "description": "Obtém a lista de todas vacinas que uma pessoa tem que tomar de acordo com a sua idade em meses",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaProtecao": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "queryText",
+            "in": "query",
+            "type": "string",
+            "description": "Obtém a lista de todas vacinas de acordo com sua proteção",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaPaciente/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "idPaciente",
+            "in": "path",
+            "description": "Mostra as vacinas que um determinado paciente tomou",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaPendentes/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "idPaciente",
+            "in": "path",
+            "description": "Mostra as vacinas pendentes de um determinado paciente",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/campanhaVacinacao": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "requestBody",
+            "in": "body",
+            "description": "Cria uma campanha de vacinação",
+            "required": true,
+            "schema": {
+              "properties": {
+                "descricao": {
+                  "type": "string"
+                },
+                "dataInicio": {
+                  "type": "string"
+                },
+                "dataFim": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "descricao",
+                "dataInicio",
+                "dataFim"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "queryDate",
+            "in": "query",
+            "type": "string",
+            "description": "Busca campanha pela data",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/campanhaVacinacao/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID da campanha"
+          },
+          {
+            "name": "requestBody",
+            "in": "body",
+            "description": "Atualiza os dados de uma campanha de vacinação",
+            "required": true,
+            "schema": {
+              "properties": {
+                "descricao": {
+                  "type": "string"
+                },
+                "dataInicio": {
+                  "type": "string"
+                },
+                "dataFim": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "descricao",
+                "dataInicio",
+                "dataFim"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/campanhaVacinacao/adicionarVacina": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "requestBody",
+            "in": "body",
+            "description": "Cadastrar campanha e vacinação",
+            "required": true,
+            "schema": {
+              "properties": {
+                "idCampanha": {
+                  "type": "integer"
+                },
+                "idVacina": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "idCampanha",
+                "idVacina"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/campanhaVacinacao/deletarVacina/{idVacina}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "idVacina",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Deleta uma vacina e campanha da campanha de vacinação"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/campanhaVacinacaoProtecao": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "queryText",
+            "in": "query",
+            "type": "string",
+            "description": "Obtém a campanha de acordo com a proteção da vacina",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}
