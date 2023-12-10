@@ -13,8 +13,9 @@ const atualizarCampanha = async (descricao, dataInicio, dataFim, id) => {
 }
 
 const pesquisaCampanhaData = async (data) => {
-  const result = await pool.query('SELECT * FROM CAMPANHA WHERE DATA_INICIO >= $1 AND DATA_FIM <= $1', [data]);
-
+  console.log(data);
+  const result = await pool.query(`SELECT * FROM CAMPANHA WHERE DATA_INICIO >= $1 AND DATA_FIM <= $1`, [data]);
+  console.log(result.rows);
   return result.rows;
 }
 
