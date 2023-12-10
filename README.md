@@ -1,10 +1,10 @@
 # API de Controle de Vacinação 
-## Projeto Hackathon           <img src='img/digitando.jpeg' /> 
+## Projeto Hackathon               <img src='projeto/img/digitando2.png' width='50' height='40' />
  Esta é uma API desenvolvida em Node.js para gerenciar informações relacionadas a pacientes, vacinas, campanhas de vacinação e períodos de aplicação. A API oferece operações básicas de CRUD (Create, Read, Update, Delete) para cada entidade, permitindo o rastreamento eficiente das vacinas aplicadas a cada paciente ao longo do tempo.
  
 ### Exemplos de Requisições
 
-<img src='img/swegger.gif' />
+<img src='projeto/img/swegger.gif'/>
 
 ### Tecnologias Utilizadas
 - Node.js: O backend da API foi desenvolvido em Node.js, proporcionando uma execução eficiente e escalável.
@@ -53,7 +53,8 @@
 ```
 
 ### Agradecimentos
-Agradecemos à Mesttra pela parceria e pela oportunidade de aplicar nossos conhecimentos e habilidades neste hackathon de 32 horas.
+
+Agradecemos à Mesttra pela parceria e pela valiosa oportunidade de aplicar os conhecimentos e habilidades adquiridos no 1000Devs durante este estimulante hackathon de 32 horas. Foi uma experiência enriquecedora e mal podemos esperar por futuras colaborações! 🚀✨
 
 ### Autores
 1. [Bruna Almeida](https://www.linkedin.com/in/bruna-almeida-soares/);
