@@ -75,7 +75,6 @@
             "name": "requestBody",
             "in": "body",
             "description": "Novos dados para o paciente",
-            "required": true,
             "schema": {
               "properties": {
                 "nome": {
