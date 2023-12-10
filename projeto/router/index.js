@@ -4,6 +4,7 @@ const VacinaAplicadaController = require('../controllers/VacinaAplicadaControlle
 const VacinaController = require('../controllers/VacinaController');
 const VacinaProtecaoController = require('../controllers/VacinaProtecaoController');
 const VacinaPacienteController = require('../controllers/VacinaPacienteController');
+const CampanhaVacinacaoController = require('../controllers/CampanhaVacinacaoController');
 
 const router = Router();
 const pacienteController = new PacienteController();
@@ -11,6 +12,7 @@ const vacinaAplicadaController = new VacinaAplicadaController();
 const vacinaController = new VacinaController();
 const vacinaProtecaoController = new VacinaProtecaoController();
 const vacinaPacienteController = new VacinaPacienteController();
+const campanhaVacinacaoController = new CampanhaVacinacaoController();
 
 router.post('/paciente', pacienteController.create);
 router.put('/paciente/:id', pacienteController.update);
@@ -34,5 +36,12 @@ router.get('/vacinaProtecao', vacinaProtecaoController.find);
 
 router.get('/vacinaPaciente/:id', vacinaPacienteController.vacinasTomadas);
 router.get('/vacinaPendentes/:id', vacinaPacienteController.vacinasPendentes);
+
+router.post('/campanhaVacinacao', campanhaVacinacaoController.create);
+router.put('/campanhaVacinacao/:id', campanhaVacinacaoController.update);
+router.get('/campanhaVacinacao', campanhaVacinacaoController.search);
+router.post('/campanhaVacinacao/adicionarVacina', campanhaVacinacaoController.addVaccine);
+router.delete('/campanhaVacinacao/deletarVacina/:idVacina', campanhaVacinacaoController.deleteVaccine);
+router.get('/campanhaVacinacao', campanhaVacinacaoController.showCampanha);
 
 module.exports = router;
