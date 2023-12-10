@@ -3,7 +3,7 @@ const pool = require('./index');
 const criarPaciente = async (nome, data_nascimento) => {
   const result = await pool.query('INSERT INTO PACIENTE (ID_PACIENTE, NOME, DATA_NASCIMENTO) VALUES ((SELECT COALESCE(MAX(ID_PACIENTE), 0) + 1 FROM PACIENTE), $1, $2)', [nome, data_nascimento]);
 
-  return result.rows;
+  return { message: "Patient successfully registered." };
 }
 
 const mostrarPacientes = async (nome) => {
