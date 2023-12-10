@@ -6,9 +6,9 @@ const criarPaciente = async (nome, data_nascimento) => {
   return result.rows;
 }
 
-const mostrarPacientes = async (id) => {
-  // const result = await pool.query(`SELECT NOME, DATA_NASCIMENTO FROM PACIENTE WHERE NOME = $1`, [`%${nome}%`]);
-  const result = await pool.query(`SELECT NOME, DATA_NASCIMENTO FROM PACIENTE WHERE ID_PACIENTE = $1`, [id]);
+const mostrarPacientes = async (nome) => {
+  const result = await pool.query(`SELECT NOME, DATA_NASCIMENTO FROM PACIENTE WHERE NOME ILIKE $1`, [`%${nome}%`]);
+  // const result = await pool.query(`SELECT NOME, DATA_NASCIMENTO FROM PACIENTE WHERE ID_PACIENTE = $1`, [id]);
   return result.rows;
 }
 
@@ -24,7 +24,6 @@ const deletarPaciente = async (id) => {
 
 const todosPacientes = async () => {
   const result = await pool.query(`SELECT * FROM PACIENTE`);
-
   return result.rows;
 }
 
