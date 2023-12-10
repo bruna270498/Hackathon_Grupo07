@@ -10,7 +10,6 @@ class VacinaProtecaoController {
     }
 
     const result = await mostrarVacinaProtecao(text);
-    console.log(result);
 
     return res.status(200).json(result);
   }
