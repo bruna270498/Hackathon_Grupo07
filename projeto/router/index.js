@@ -41,6 +41,6 @@ router.put('/campanhaVacinacao/:id', campanhaVacinacaoController.update);
 router.get('/campanhaVacinacao', campanhaVacinacaoController.search);
 router.post('/campanhaVacinacao/adicionarVacina', campanhaVacinacaoController.addVaccine);
 router.delete('/campanhaVacinacao/deletarVacina/:idVacina', campanhaVacinacaoController.deleteVaccine);
-router.get('/campanhaVacinacao', campanhaVacinacaoController.showCampanha);
+router.get('/campanhaVacinacaoProtecao', campanhaVacinacaoController.showCampanha);
 
 module.exports = router;

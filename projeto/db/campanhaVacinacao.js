@@ -13,7 +13,7 @@ const atualizarCampanha = async (descricao, dataInicio, dataFim, id) => {
 }
 
 const pesquisaCampanhaData = async (data) => {
-  const result = await pool.query('SELECT * FROM CAMPANHA WHERE DATA_INICIO >= $1 AND DATA_FIM <= $1', [data]);
+  const result = await pool.query('SELECT * FROM CAMPANHA WHERE $1 BETWEEN DATA_INICIO AND DATA_FIM', [data]);
 
   return result.rows;
 }
@@ -32,10 +32,7 @@ const deletarVacinaCampanha = async (idVacina) => {
 
 const mostrarCampanhaVacina = async (text) => {
   const result = await pool.query('SELECT C.* FROM CAMPANHA C JOIN CAMPANHAVACINA CV ON C.ID_CAMPANHA = CV.ID_CAMPANHA JOIN VACINA V ON CV.ID_VACINA = V.ID_VACINA WHERE V.DOENCA_PROTECAO ILIKE $1', [`%${text}%`]);
-  console.log(result);
   return result;
 }
-
-mostrarCampanhaVacina()
 
 module.exports = { adicionarCampanha, atualizarCampanha, pesquisaCampanhaData, adicionarVacinaCampanha, deletarVacinaCampanha, mostrarCampanhaVacina };

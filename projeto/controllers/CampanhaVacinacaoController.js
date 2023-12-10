@@ -54,7 +54,6 @@ class CampanhaVacinacaoController {
     const { text } = req.query;
 
     const result = await mostrarCampanhaVacina(text);
-    console.log(result)
     return res.status(200).json(result);
   }
 }
